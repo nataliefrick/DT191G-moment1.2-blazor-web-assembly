@@ -1,0 +1,65 @@
+﻿@page "/convert"
+
+
+<PageTitle>Convert</PageTitle>
+<div class="main-container flex-container">
+    <div class="grey-bkg">
+        <h4 class="header">Convert meters to feet</h4>
+        <div class="main-container flex-container">
+            <div class="column">
+                <label for="meters">Distance in meters:</label>
+                <input type="number" class="form-control" @bind="meters" />
+            </div>
+
+            <div class="column">
+                <button class="btn" @onclick="Convert">Convert</button>
+            </div>
+        </div>
+        <div class="main-container2">
+            <h4 class="header">Converted Distance: @feet ft</h4>
+        </div>
+    </div>
+
+    <div class="grey-bkg">
+        <h4 class="header">Convert km/h to mph</h4>
+        <div class="main-container flex-container">
+            <div class="column">
+                <label for="kmh">Speed in km/hr:</label>
+                <input type="number" class="form-control" @bind="kmh" />
+            </div>
+
+            <div class="column">
+                <button class="btn" @onclick="ConvertKmh">Convert</button>
+            </div>
+        </div>
+        <div class="main-container2">
+            <h4 class="header">Converted Speed: @mph mph</h4>
+        </div>
+    </div>
+</div>
+@code {
+
+    // Konvertera meter till fot(feet) -matas exempelvis 2 in för antal meter, 
+    // ska resultatet visa 6,6 fot(avrunda till två decimaler).
+    private double feet;
+    private double meters;
+
+    private void Convert()
+    {
+        feet = meters * 3.280839895;
+        feet = Math.Round(feet, 2);
+    }
+
+    // Konvertera km/ h till miles/ hour - matas exempelvis 100 in för km/ h, ska resultatet visa 
+    // 62 miles / hour(avrunda till heltal).
+
+    private double kmh;
+    private double mph;
+
+    private void ConvertKmh()
+    {
+        mph = kmh / 1.609344;
+        mph = Math.Round(mph, 0);
+    }   
+
+}

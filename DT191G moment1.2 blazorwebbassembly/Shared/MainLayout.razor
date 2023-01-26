@@ -1,0 +1,31 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>DT191G moment1.2 blazerapp</PageTitle>
+
+
+<header class="mb-3">
+
+    <div id="logo"> <a asp-area="" asp-page="/Index"><img src="img/logo.png" /></a></div>
+    <!-- Source for logo-graphic: www.freepik.com bird-colorful-logo-gradient-vector Image by logturnal on Freepik -->
+    <div id="todays-date"><p>Dagens datum: @DateTime.Now.ToShortDateString()</p> </div>
+
+</header>
+<main class="pb-3">
+
+    <div class="sidebar-container">
+        <NavMenu />
+    </div>
+
+    <article>
+        @Body
+    </article>
+
+</main>
+
+<footer class="footer centered">
+    <div>Natalie Salomons Frick</div>
+    <div>DT191G Datateknik .NET moment1</div>
+    <div>nasa2104@student.miun.se</div>
+</footer>
+
+

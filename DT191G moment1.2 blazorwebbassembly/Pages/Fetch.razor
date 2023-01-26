@@ -1,0 +1,57 @@
+﻿@page "/fetch"
+@inject HttpClient Http
+
+<PageTitle>Fetch Data JSON</PageTitle>
+
+<h1>Courses</h1>
+
+<p>This component fetches data from the JSON file <a href="data/kurser.json" target="_blank">kurser.json</a>.</p>
+
+@if (courses == null)
+{
+        <p><em>Loading...</em></p>
+}
+else
+{
+        <table class="table">
+            <thead>
+                <tr>
+                    <td class="centered">Kurskod</td>
+                    <td class="padding-start-1">Namn</td>
+                    <td class="centered">Progression</td>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var course in courses)
+            {
+                        <tr>
+                            <td class="centered"><a href="@course.Kursplan" title="Klicka för att se kursplan" target="_blank">@course.Kurskod</a></td>
+                            <td class="padding-start-1">@course.Namn</td>
+                            <td class="centered">@course.Progression</td>
+                        </tr>
+            }
+            </tbody>
+        </table>
+
+}
+
+@code {
+    private CourseList[]? courses;
+
+    protected override async Task OnInitializedAsync()
+    {
+        courses = await Http.GetFromJsonAsync<CourseList[]>("data/kurser.json");
+    }
+
+    public class CourseList
+    {
+        public string? Kurskod { get; set; }
+
+        public string? Namn { get; set; }
+
+        public string? Progression { get; set; }
+
+        public string? Kursplan { get; set; }
+    }
+}
+

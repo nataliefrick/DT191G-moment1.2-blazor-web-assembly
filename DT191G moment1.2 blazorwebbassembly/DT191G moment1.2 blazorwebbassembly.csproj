@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\css\NewFolder1\**" />
+    <Compile Remove="wwwroot\css\NewFolder\**" />
+    <Content Remove="wwwroot\css\NewFolder1\**" />
+    <Content Remove="wwwroot\css\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\css\NewFolder1\**" />
+    <EmbeddedResource Remove="wwwroot\css\NewFolder\**" />
+    <None Remove="wwwroot\css\NewFolder1\**" />
+    <None Remove="wwwroot\css\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Counter2.razor" />
+    <Content Remove="Pages\FetchData.razor" />
+    <Content Remove="wwwroot\data\weather.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.1" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+</Project>
